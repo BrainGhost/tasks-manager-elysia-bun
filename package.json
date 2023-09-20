@@ -3,13 +3,19 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "seed": "ts-node seed.ts"
+  },
+  "prisma": {
+    "seed": "ts-node seed.ts"
   },
   "dependencies": {
     "@elysiajs/jwt": "^0.6.4",
     "@prisma/client": "^5.3.1",
     "elysia": "latest",
-    "prisma": "^5.3.1"
+    "prisma": "^5.3.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   },
   "devDependencies": {
     "bun-types": "latest"
