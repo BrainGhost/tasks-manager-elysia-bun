@@ -7,20 +7,19 @@ const app = new Elysia()
   .get("/", () => "Hello Elysia")
   .get("/tasks/get-all/", async () => {
     const tasks = await db.task.findMany();
-    console.log("<<<<<<<<<< tasks >>>>>>>>>>>>>>>>");
-    console.log(tasks);
     return Response(JSON.stringify(tasks));
   })
   .post("/tasks/create/", async ({ body }) => {
-    db.task.create({
-      data: body,
-    }),
-      {
-        body: t.Object({
-          title: t.String(),
-          description: t.String(),
-        }),
-      };
+    const createdTask = await db.task.create({
+      data: {
+        title: "Rental",
+        description: "Life is amazing if you have money",
+        startDate: new Date(),
+        endDate: new Date(),
+        userId: 1,
+      },
+    });
+    return Response(JSON.stringify(createdTask));
   })
   .listen(3000);
 
