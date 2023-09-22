@@ -12,8 +12,8 @@ const app = new Elysia()
   .post("/tasks/create/", async ({ body }) => {
     const createdTask = await db.task.create({
       data: {
-        title: body.title,
-        description: body.description,
+        title: "Rental",
+        description: "Life is amazing if you have money",
         startDate: new Date(),
         endDate: new Date(),
         userId: 1,
